@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SLIDESHOW</title>
+
+    <style>
+
+        body{
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(75deg,rgb(255, 255, 255),rgb(0, 0, 0));
+
+        }
+        .slider{
+            height: 700px;
+            width: 1200px;
+            border-radius: 10px;
+            overflow:hidden;
+        }
+        .slides{
+            height: 700px;
+            width: 500%;
+            display: flex;
+        }
+        .slides input{
+            width: 1200px;
+            height: 700px;
+            display: none;
+        }
+        .slideimg{
+            width: 20%;
+            transition: 2s;
+        }
+        .slideimg img{
+            width: 1200px;
+            height: 700px;
+        }
+        .manual{
+            width: 1200px;
+            display: flex;
+            position: absolute;
+            margin-top: -40px;
+            justify-content: center;
+        }
+        .manuals{
+            height: 2px;
+            display: inline-block;
+            width: 2px;
+            border: 2px solid white;
+            padding: 5px;
+            border-radius:50%;
+            cursor: pointer;
+            transition: 1s;
+        }
+        .manuals:not(:last-child){
+            margin-right: 40px;
+        }
+        .manuals:hover{
+            background-color: red;
+        }
+        #radio1:checked ~ .frist{
+            margin-left: 0%;
+        }
+        #radio2:checked ~ .frist{
+            margin-left: -20%;
+        }
+        #radio3:checked ~ .frist{
+            margin-left: -40%;
+        }
+        #radio4:checked ~ .frist{
+            margin-left: -60%;
+        }
+        .auto{
+            width: 1200px;
+            display: flex;
+            position: absolute;
+            margin-top: 660px;
+            justify-content: center;
+        }
+        .auto div{
+            border: 2px solid white;
+            height: 2px;
+            width: 2px;
+            padding: 5px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 1s;
+        }
+        .auto div:not(:last-child){
+            margin-right: 40px;
+        }
+        #radio1:checked ~ .auto .auto1{
+            background: rgb(127, 203, 12);
+        }
+        #radio2:checked ~ .auto .auto2{
+            background: rgb(127, 203, 12);
+        }
+        #radio3:checked ~ .auto .auto3{
+            background: rgb(127, 203, 12);
+        }
+        #radio4:checked ~ .auto .auto4{
+            background: rgb(127, 203, 12);
+        }
+        
+        .logo{
+            display: flex;
+            position: fixed;
+            height: 60px;
+            width: 80px;
+        }
+        .container{
+            display: flex;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            margin: 0%;
+        }
+        
+
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+    <div class="header" >
+
+    </div>
+
+        <div class="logo">
+            <img src="logomarvel.png" onmouseover="bigImg(this)" onmouseout="normalImg(this)" src="logomarvel.png"></div>
+    
+</div>
+
+
+    <div class="slider">
+    <div class="slides">
+        <input type="radio" id="radio1" name="radios">
+        <input type="radio" id="radio2" name="radios">
+        <input type="radio" id="radio3" name="radios">
+        <input type="radio" id="radio4" name="radios"> 
+
+        <div class="slideimg frist">
+            <img src="1.jpg" >
+        </div>
+
+        <div class="slideimg">
+            <img src="2.jpg" >
+        </div>
+
+        <div class="slideimg">
+            <img src="3.jpg" >
+        </div>
+
+        <div class="slideimg">
+            <img src="4.jpg" >
+        </div>
+
+        <div class="auto">
+            <div class="auto1"></div>
+            <div class="auto2"></div>
+            <div class="auto3"></div>
+            <div class="auto4"></div>
+        </div>
+
+    </div>
+
+    <div class="manual">
+        <label for="radio1" class="manuals"></label>
+        <label for="radio2" class="manuals"></label>
+        <label for="radio3" class="manuals"></label>
+        <label for="radio4" class="manuals"></label>
+    </div>
+
+        
+</div>
+<script>
+    
+    var jeesamyu = 1;
+    setInterval(function(){
+        document.getElementById('radio' + jeesamyu).checked=true;
+        jeesamyu = jeesamyu + 1;
+
+    if(jeesamyu > 4)
+       jeesamyu = 1 ;
+    },3000);
+</script>
+
+
+<script>
+    function bigImg(x){
+        x.style.height = "120px";
+        x.style.width = "400px";
+    }
+    function normalImg(x){
+        x.style.height ="60px";
+        x.width.width = "80px";
+    }
+
+</script>
+
+</body>
+</html>
